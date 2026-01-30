@@ -1,0 +1,168 @@
+{
+    "reload_style_on_change": true,
+    "layer": "bottom",
+    "margin-top": 5,
+    "margin-bottom": 0,
+    "position": "top",
+    "spacing": 0,
+    "width": 800,
+    "height": 28,
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-left": [
+        "clock",
+        "custom/cava",
+        "custom/screenrecording-indicator"
+    ],
+    "modules-right": [
+        "network",
+        "pulseaudio",
+        "battery"
+    ],
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "format": "{icon}",
+        "format-icons": {
+            "default": "",
+            "1": "󰎤",
+            "2": "󰎧",
+            "3": "󰎪",
+            "4": "󰎭",
+            "5": "󰎱",
+            "6": "󰎳",
+            "7": "󰎶",
+            "8": "󰎹",
+            "9": "󰎼",
+            "10": "󰓇",
+            "11": "󰙯",
+            "12": "",
+            // "active": "󰅭",
+        },
+        "persistent-workspaces": {},
+    },
+    "custom/cava": {
+        "format": "{}",
+        "exec": "~/.config/waybar/cava.sh",
+    },
+    "custom/update": {
+        "format": "",
+        "exec": "omarchy-update-available",
+        "on-click": "omarchy-launch-floating-terminal-with-presentation omarchy-update",
+        "tooltip-format": "Omarchy update available",
+        "signal": 7,
+        "interval": 21600,
+    },
+    "hyprland/window": {
+        "format": " {}",
+        "max-length": 50,
+        "separate-outputs": true,
+    },
+    "clock": {
+        "format": "{:%H:%M }",
+        "format-alt": "{:L%d %B %Y}",
+        "tooltip-format": "<span>{calendar}</span>",
+        "calendar": {
+            "mode": "month",
+            "mode-mon-col": 3,
+            "on-click-right": "mode",
+            "format": {
+                "month": "<span color='#FFE7CE'><b>{}</b></span>",
+                "weekdays": "<span color='#DFB431'><b>{}</b></span>",
+                "today": "<span color='#CE5D97'><b>{}</b></span>",
+            },
+        },
+        "on-click-right": "~/.local/share/omarchy/bin/omarchy-launch-floating-terminal-with-presentation omarchy-tz-select",
+    },
+    "network": {
+        "format-icons": [
+            "󱚵",
+            "󱚶",
+            "󱚷",
+            "󱚸",
+            "󱚹"
+        ],
+        "format": "{icon}",
+        "format-wifi": "{icon}",
+        "format-ethernet": "󰀂",
+        "format-disconnected": "󱚵",
+        "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+        "tooltip-format-disconnected": "Disconnected",
+        "interval": 3,
+        "spacing": 1,
+        "on-click": "omarchy-launch-floating-terminal-with-presentation nmtui",
+    },
+    "battery": {
+        "format": "{capacity}% {time} {icon}",
+        "format-discharging": "{icon}",
+        "format-charging": "{icon} ",
+        "format-plugged": "",
+        "format-icons": {
+            "charging": [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+            "default": [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+            ],
+        },
+        "format-full": "", // Updated to horizontal full
+        "tooltip-format-discharging": "{power:>1.0f}W↓ {capacity}% {time} ",
+        "tooltip-format-charging": "{power:>1.0f}W↑ {capacity}% {time}",
+        "interval": 5,
+        "on-click": "omarchy-menu power",
+        "states": {
+            "full": 100,
+            "good": 75,
+            "medium": 50,
+            "warning": 25,
+            "critical": 10,
+        },
+    },
+    "bluetooth": {
+        "format": "",
+        "format-disabled": "󰂲",
+        "format-off": "󰂲",
+        "format-connected": "󰂱",
+        "tooltip-format": "Devices connected: {num_connections}",
+        "on-click": "omarchy-launch-bluetooth",
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "on-click": "omarchy-launch-audio",
+        "on-click-right": "pamixer -t",
+        "tooltip-format": "Playing at {volume}%",
+        "scroll-step": 5,
+        "format-muted": "󰓄",
+        "format-icons": {
+            "headphone": "",
+            "default": [
+                "󰓃"
+            ],
+        },
+    },
+    "custom/screenrecording-indicator": {
+        "on-click": "omarchy-cmd-screenrecord",
+        "exec": "$OMARCHY_PATH/default/waybar/indicators/screen-recording.sh",
+        "signal": 8,
+        "return-type": "json",
+    },
+}

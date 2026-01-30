@@ -1,0 +1,230 @@
+/* Flexoki Dark Theme */
+@define-color background #100F0F;
+@define-color background-alt #1C1B1A;
+@define-color foreground #CECDC3;
+@define-color ui-border #282726;
+
+/* Flexoki Accents (400 series for dark) */
+@define-color accent-red #D14D41;
+@define-color accent-orange #DA702C;
+@define-color accent-yellow #D0A215;
+@define-color accent-green #879A39;
+@define-color accent-cyan #3AA99F;
+@define-color accent-blue #4385BE;
+@define-color accent-purple #8B7EC8;
+@define-color accent-magenta #CE5D97;
+
+* {
+  color: @foreground;
+  border: none;
+  min-height: 0;
+  font-family: "CaskaydiaMono Nerd Font";
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.modules-left > *,
+.modules-right > *,
+.modules-center > * {
+  border-radius: 15px;
+}
+
+.modules-left {
+  margin-left: 8px;
+}
+
+.modules-right {
+  margin-right: 8px;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  min-width: 9px;
+
+  margin: 4px 3px;
+
+  background-color: transparent;
+  color: transparent;
+  border-radius: 6px;
+
+  transition: all 0.19s ease;
+}
+
+#workspaces button.active {
+  padding-left: 5.5px;
+  padding-right: 7.8px;
+  background-color: @foreground;
+  min-width: 25px;
+}
+
+#workspaces button.active * {
+  font-size: 16px;
+  color: @background;
+}
+
+#workspaces button * {
+  font-size: 15px;
+  margin-right: 1.5px;
+}
+
+#workspaces button.empty {
+  opacity: 0.5;
+}
+
+#workspaces button.active:hover {
+  background: @foreground;
+}
+
+#workspaces button:hover {
+  background: transparent;
+}
+
+window#waybar {
+  background-color: alpha(@background, 0.95);
+  border-radius: 8px;
+}
+
+#custom-update {
+  font-size: 10px;
+  margin-right: 2px;
+  margin-left: 10px;
+}
+
+#pulseaudio {
+  color: @foreground;
+  margin-right: 12px;
+}
+
+#pulseaudio.muted {
+  color: #878580;
+}
+
+#pulseaudio.bluetooth {
+  color: @accent-blue;
+}
+
+#bluetooth,
+#custom-screenrecording-indicator {
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+#tray {
+  margin-right: 12px;
+}
+
+#custom-expand-icon {
+  margin-right: 10px;
+}
+
+#tooltip {
+  padding: 10px;
+  border: 1.5px solid @ui-border;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  background-color: alpha(@background-alt, 0.96);
+  color: @foreground;
+}
+
+#clock {
+  margin-left: 8px;
+  color: @accent-orange;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+#custom-screenrecording-indicator {
+  margin-left: 14px;
+  margin-right: 5px;
+  font-size: 10px;
+  padding-bottom: 1px;
+}
+
+#custom-screenrecording-indicator.active {
+  color: @accent-red;
+}
+
+#custom-pacman-updates {
+  color: @accent-blue;
+  margin-right: 11px;
+  margin-left: 8px;
+}
+
+#battery {
+  margin: 0;
+  margin-right: 8px;
+  color: @foreground;
+  background: transparent;
+  border-radius: 0;
+}
+
+#battery.full {
+  color: @accent-green;
+}
+
+#battery.good {
+  color: @accent-cyan;
+}
+
+#battery.medium {
+  color: @accent-blue;
+}
+
+#battery.warning {
+  color: @accent-yellow;
+}
+
+#battery.critical:not(.charging) {
+  color: @accent-red;
+}
+
+#battery.charging {
+  color: @accent-cyan;
+}
+
+#battery.plugged {
+  color: @accent-green;
+}
+
+#network {
+  color: @foreground;
+  margin-right: 15px;
+}
+
+#network.ethernet {
+  color: @accent-cyan;
+}
+
+#network.wifi {
+  color: @accent-green;
+}
+
+#network.disconnected {
+  color: @accent-red;
+}
+
+#network.linked {
+  color: @accent-yellow;
+}
+
+#network.disabled {
+  color: #878580;
+}
+
+#custom-cava {
+  color: @foreground;
+  padding-left: 10px;
+  margin-left: 0;
+}
+
+#custom-voxtype {
+  min-width: 12px;
+  margin: 0 0 0 7.5px;
+}
+
+#custom-voxtype.recording {
+  color: #a55555;
+}
